@@ -1,0 +1,21 @@
+<div [formGroup]="formParent">
+<mat-form-field class="example-full-width">
+  <mat-label>{{config.label}}</mat-label>
+  <input matInput [formControlName]="config.key" [class.xxxxxxxxxxxx]="isValid">
+
+
+  <mat-error *ngIf="this.formParent.get(config.key).invalid && this.formParent.get(config.key).errors">
+
+    <span *ngIf="this.formParent.get(config.key).errors">{{getError()}}</span>
+
+  </mat-error>
+
+</mat-form-field>
+
+  <p></p>
+
+  <p>invalid : {{this.formParent.get(config.key).invalid}}</p>
+  <p>dirty : {{this.formParent.get(config.key).dirty}}</p>
+  <p>touched : {{this.formParent.get(config.key).touched}}</p>
+  <p>error: {{this.formParent.get(config.key).errors |  json}}</p>
+</div>
